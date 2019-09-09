@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>list</title>
+</head>
+<body>
+	<script>
+		//链表构造函数
+		function ListNode(val){
+			this.val = val;
+			this.next = null;
+		}
+		//根据数组创建链表
+		function createList(arr){
+			let nextNode,list;
+			for(let i = 0; i < arr.length; i++){
+				if(i == 0) {
+					list = new ListNode(arr[i]);
+					nextNode = list;
+				} else {
+					nextNode.next =  new ListNode(arr[i]);
+					nextNode = nextNode.next;
+				}
+			}
+			return list;
+		}
+
+		let head = createList([1,1,2,2,2,1,3,3,1]);
+		let arr = [];
+		let prevNode = head;
+		arr.push(head.val);
+
+
+		deleteRepetition(head);
+
+		//删除重复列表主函数
+		function deleteRepetition(head){
+
+			compare(head,head.next)
+			console.log(arr);
+			console.log(head);
+
+		}
+
+		//递归对比删除相同的节点
+		function compare(o1,o2){
+			if(o2 == null){
+				if(o1.next !== null && o1.next.next !== null){
+					prevNode = o1.next;
+					arr.push(o1.next.val);
+					compare(o1.next,o1.next.next);
+				} else {
+					return;
+				}
+			}
+
+			if(o1.val !== o2.val){
+				prevNode = o2;
+			} else {
+				prevNode.next = o2.next;
+			}
+
+			compare(o1,o2.next);
+
+		}
+
+
+
+
+
+
+	</script>
+</body>
+</html>
