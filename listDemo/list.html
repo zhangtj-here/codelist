@@ -32,14 +32,14 @@
 		arr.push(head.val);
 
 
-		deleteRepetition(head);
+		deleteDuplicates(head);
 
 		//删除重复列表主函数
-		function deleteRepetition(head){
-
-			compare(head,head.next)
+		function deleteDuplicates(head){
+			compare(head,head.next);
 			console.log(arr);
 			console.log(head);
+			return head;
 
 		}
 
@@ -50,6 +50,7 @@
 					prevNode = o1.next;
 					arr.push(o1.next.val);
 					compare(o1.next,o1.next.next);
+					return;
 				} else {
 					return;
 				}
@@ -64,12 +65,6 @@
 			compare(o1,o2.next);
 
 		}
-
-
-
-
-
-
 	</script>
 </body>
 </html>
