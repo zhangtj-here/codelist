@@ -71,6 +71,37 @@
 			compare(o1,o2.next);
 
 		}
+
+
+		// leetcode解法
+		/*let prevNode;
+
+		var deleteDuplicates = function(head) {
+		    if(!head || !head.next)
+		        return head;
+		    
+		    prevNode = head;
+		    compare(head,head.next);
+		    return head;
+		};
+
+		function compare(o1,o2){
+		    if(o2 == null){
+		        if(o1.next !== null && o1.next.next !== null){
+		            prevNode = o1.next;
+		            compare(o1.next,o1.next.next);
+		            return;
+		        }else{
+		            return;
+		        }
+		    }
+		    if(o1.val !== o2.val){
+		        prevNode = o2;
+		    } else {
+		        prevNode.next = o2.next;
+		    }
+		    compare(o1,o2.next);
+		}*/
 	</script>
 </body>
 </html>

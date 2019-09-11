@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reveseList</title>
+</head>
+<body>
+	<script>
+		/**
+		 * Definition for singly-linked list.
+		 * function ListNode(val) {
+		 *     this.val = val;
+		 *     this.next = null;
+		 * }
+		 */
+		/**
+		 * @param {ListNode} head
+		 * @return {ListNode}
+		 */
+		var reverseList = function(head) {
+		    let endValue = 0;
+		    let step = 0;
+		    exchange(head);
+		    console.log(endValue);
+		    return head;
+		    
+		    function exchange(list){
+		        if(!list.next){
+		            endValue = step - 1;
+		            exchange(head); //不能直接用head
+		            return;
+		        }
+		        
+		        
+		            
+		        
+		        step++;
+		        let val = list.val;
+		        // endValue = val;
+		        list.val = list.next.val;
+		        list.next.val = val;
+		        
+		        exchange(list.next);
+		    }
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>list2</title>
+</head>
+<body>
+	<script>
+
+		//链表构造函数
+		function ListNode(val){
+			this.val = val;
+			this.next = null;
+		}
+		//根据数组创建链表
+		function createList(arr){
+			let nextNode,list;
+			for(let i = 0; i < arr.length; i++){
+				if(i == 0) {
+					list = new ListNode(arr[i]);
+					nextNode = list;
+				} else {
+					nextNode.next =  new ListNode(arr[i]);
+					nextNode = nextNode.next;
+				}
+			}
+			return list;
+		}
+
+		let head = createList([1,1]);
+		let obj = {};
+		deleteDuplicates(head);
+		function deleteDuplicates(head) {
+		    if(!head || !head.next)
+		        return head;
+		    
+		    let list = new ListNode(null);
+		    let nextNode = list;
+		    compare(head);
+		    for(let i in obj){
+		        nextNode.next = new ListNode(i);
+		        nextNode = nextNode.next;
+		    }
+
+		    list = list.next;
+		    console.log(list);
+		    return list;
+		};
+
+		function compare(o1){
+		    if(o1.next == null){
+		    	obj[o1.val] = o1.val;
+		        return;
+		    }
+		        
+		    obj[o1.val] = o1.val;
+		    compare(o1.next);
+		}
+	</script>		
+</body>
+</html>
