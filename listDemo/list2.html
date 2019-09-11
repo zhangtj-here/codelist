@@ -56,6 +56,48 @@
 		    obj[o1.val] = o1.val;
 		    compare(o1.next);
 		}
+
+
+
+
+		/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    let newlist = new ListNode(null);
+    addlist(l1,l2);
+    return newlist;
+    
+    function addlist(o1,o2){
+        if(!o1 && !o2)
+            return;
+        if(!o2){
+           newlist.next = new ListNode(o1.val); 
+           newlist = newlist.next;
+           addlist(o1.next,null);
+        }else if(!o1){
+            newlist.next = new ListNode(02.val);
+            newlist = newlist.next;
+            addlist(null,o2.nextl);
+        }else{
+           newlist.next = new ListNode(o1.val);
+           newlist.next.next = new ListNode(02.val);
+           newlist = newlist.next.next;
+           addlist(o1.next,02.next); 
+        }
+        
+    }
+    
+};
 	</script>		
 </body>
 </html>
